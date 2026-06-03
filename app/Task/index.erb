@@ -1,0 +1,26 @@
+<div class="border d-flex justify-content-between align-items-center p-2">
+  <a href="<%= Rho::Application.startURI %>" class="btn btn-secondary btn-sm">Home</a>
+  <h3 class="mb-0">Tasks</h3>
+  <a href="<%= url_for :action => :new %>" class="btn btn-primary btn-sm">+ New</a>
+</div>
+
+<div class="container-fluid p-1">
+  <% if @tasks.empty? %>
+    <p class="text-center text-muted mt-4">No tasks yet. Tap <strong>+ New</strong> to create one.</p>
+  <% else %>
+    <div class="list-group">
+      <% @tasks.each do |task| %>
+        <a href="<%= url_for :action => :show, :id => task.object %>"
+           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+          <div>
+            <strong><%= task.title %></strong>
+            <% if task.location && !task.location.empty? %>
+              <br/><small class="text-muted"><%= task.location %></small>
+            <% end %>
+          </div>
+          <span class="label <%= task.status_badge_class %>"><%= task.status_label %></span>
+        </a>
+      <% end %>
+    </div>
+  <% end %>
+</div>

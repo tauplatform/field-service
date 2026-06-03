@@ -1,0 +1,36 @@
+<div class="border d-flex justify-content-between align-items-center p-2">
+  <a href="<%= url_for :action => :index %>" class="btn btn-secondary btn-sm">Cancel</a>
+  <h4 class="mb-0">New Task</h4>
+  <span></span>
+</div>
+
+<div class="container-fluid p-2">
+  <form method="POST" action="<%= url_for :action => :create %>">
+
+    <div class="form-group">
+      <label>Title *</label>
+      <input type="text" name="task[title]" class="form-control"
+             placeholder="e.g. Replace HVAC filter" required/>
+    </div>
+
+    <div class="form-group">
+      <label>Assigned To</label>
+      <input type="text" name="task[assigned_to]" class="form-control"
+             placeholder="Technician name"/>
+    </div>
+
+    <div class="form-group">
+      <label>Location</label>
+      <input type="text" name="task[location]" class="form-control"
+             placeholder="Site address"/>
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea name="task[description]" class="form-control" rows="3"
+                placeholder="Work order details..."></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success btn-block">Create Task</button>
+  </form>
+</div>

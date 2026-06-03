@@ -1,0 +1,55 @@
+
+<div class="border d-flex justify-content-between">
+  <a href="<%= url_for :action => :show, :id => @task.object %>" class="m-1 btn btn-secondary btn-sm">Cancel</a>
+
+  <h3>Edit <%= @task.title %></h3>
+
+  <a href="<%= url_for :action => :delete, :id => @task.object %>" class="m-1 btn btn-danger btn-sm">Delete</a>
+
+</div>
+
+<div class="container-fluid">
+
+  <form method="POST" action="<%= url_for :action => :update %>">
+    <input type="hidden" name="id" value="<%= @task.object %>"/>
+
+    
+        <div class="form-group">
+          <label for="task[title]">Title</label>
+          <input type="text" id="task[title]" name="task[title]" value="<%= @task.title %>" <%= placeholder( "Title" ) %> class="form-control" />
+        </div>
+    
+        <div class="form-group">
+          <label for="task[description]">Description</label>
+          <input type="text" id="task[description]" name="task[description]" value="<%= @task.description %>" <%= placeholder( "Description" ) %> class="form-control" />
+        </div>
+    
+        <div class="form-group">
+          <label for="task[status]">Status</label>
+          <input type="text" id="task[status]" name="task[status]" value="<%= @task.status %>" <%= placeholder( "Status" ) %> class="form-control" />
+        </div>
+    
+        <div class="form-group">
+          <label for="task[assigned_to]">Assigned to</label>
+          <input type="text" id="task[assigned_to]" name="task[assigned_to]" value="<%= @task.assigned_to %>" <%= placeholder( "Assigned to" ) %> class="form-control" />
+        </div>
+    
+        <div class="form-group">
+          <label for="task[location]">Location</label>
+          <input type="text" id="task[location]" name="task[location]" value="<%= @task.location %>" <%= placeholder( "Location" ) %> class="form-control" />
+        </div>
+    
+        <div class="form-group">
+          <label for="task[photo_path]">Photo path</label>
+          <input type="text" id="task[photo_path]" name="task[photo_path]" value="<%= @task.photo_path %>" <%= placeholder( "Photo path" ) %> class="form-control" />
+        </div>
+    
+        <div class="form-group">
+          <label for="task[created_at]">Created at</label>
+          <input type="text" id="task[created_at]" name="task[created_at]" value="<%= @task.created_at %>" <%= placeholder( "Created at" ) %> class="form-control" />
+        </div>
+    
+    <button type="submit" class="btn btn-success btn-block">Update</button>
+  </form>
+
+</div>
