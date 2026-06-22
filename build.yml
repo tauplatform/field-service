@@ -1,5 +1,4 @@
 ## Note: sdk is full path to Rhodes root. If not defined - automatically find latest installed Rhodes gem
-sdk: "C:/Users/mva/Projects/tau/rhodes-new"
 sdkversion: 7.4.0
 name: field-service
 version: 1.0
